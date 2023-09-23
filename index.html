@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mezkala</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Center the content */
+      /* body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      } */
+      /* Style for the message */
+      /* #message {
+        margin-bottom: 2vh;
+        font-size: 24px;
+      } */
+      /* Style for the buttons */
+      /* a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1vh 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      } */
+
+      /* Style for Continue to Chat */
+      /* #appLink {
+        background-color: #118c7f;
+        font-size: 1.75rem;
+        border-radius: 999px;
+        padding: 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1vh 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      } */
+
+      /* Style for Download App */
+      /* #storelink {
+        color: black;
+        background-color: #30d464;
+        font-size: 1.75rem;
+        border-radius: 999px;
+        padding: 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1vh 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      } */
+
+      /* .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      } */
+
+      /* #chatMsg {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      } */
+
+      /* Make it responsive */
+      /* @media (max-width: 600px) {
+        a {
+          font-size: 55px;
+        }
+        #message {
+          font-size: 50px;
+        }
+      } */
+    </style>
+  </head>
+
+  <body class="font-sans">
+    <!-- <p id="message">Redirecting...</p> -->
+    <div class="h-screen">
+      <div class="border border-red-500 py-4 w-full">HI</div>
+      <!-- <div class="flex flex-col items-center justify-center">
+        <div class="bg-[#FAFAFA] border border-red-500">
+          <p class="text-3xl mb-8">Welcome to Mezkala</p>
+        </div>
+      </div> -->
+      <!-- <div>
+          <p>
+          <a href="#" class="my-4 no-underline">
+            <span
+              class="bg-green-600 text-4xl rounded-full p-8 flex items-center justify-center text-white"
+            >
+              Continue to Chat
+            </span>
+          </a>
+        </p>
+        <p>
+          <a
+            href="#"
+            class="my-4 text-white bg-blue-600 text-4xl rounded-full p-8 flex items-center justify-center"
+          >
+            Download
+            <span class="ml-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                width="24px"
+                height="24px"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                ></path>
+              </svg>
+            </span>
+          </a>
+        </p>
+      </div> -->
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-functions.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyB9vaAB9ptXhpeRs_JjxODEyuA_eO0tYu0",
+        authDomain: "mezcalmos-31f1c.firebaseapp.com",
+        databaseURL: "https://mezcalmos-31f1c-default-rtdb.firebaseio.com",
+        projectId: "mezcalmos-31f1c",
+        storageBucket: "mezcalmos-31f1c.appspot.com",
+        messagingSenderId: "804036698204",
+        appId: "1:804036698204:web:39b22436cbb4ef633f8699",
+        measurementId: "G-5R20EL7CL9",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const functions = firebase.functions();
+
+      async function callCloudFunction(os) {
+        const callable = functions.httpsCallable("receiveIP");
+        callable({ optionalParam: os })
+          .then((result) => {
+            console.log(result.data);
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      }
+
+      async function setLinks(osLinks) {
+        document.getElementById("appLink").href = osLinks.appLink;
+        document.getElementById("storelink").href = osLinks.storeLink;
+        document.getElementById("links").style.display = "block";
+        document.getElementById("message").style.display = "none";
+        window.location.href = osLinks.appLink; // Replace with your actual Android deep link
+        // setTimeout(function () {
+        //   window.location.href = osLinks.storeLink;
+        // }, 10000);
+      }
+
+      // async function redirect(links) {
+      //   try {
+      //     // Redirect user to the correct app store
+      //     const userAgent =
+      //       navigator.userAgent || navigator.vendor || window.opera;
+
+      //     if (/android/i.test(userAgent) && links.android != null) {
+      //       console.log("android");
+      //       callCloudFunction("android");
+      //       setLinks(links.android);
+      //     } else if (
+      //       /iPad|iPhone|iPod/.test(userAgent) &&
+      //       !window.MSStream &&
+      //       links.ios != null
+      //     ) {
+      //       console.log("ios");
+      //       callCloudFunction("ios");
+      //       setLinks(links.ios);
+      //     } else {
+      //       console.log("web");
+      //       callCloudFunction("web");
+      //       document.getElementById("message").innerText =
+      //         "Not supported for this device";
+      //     }
+      //   } catch (error) {
+      //     console.error("Error:", error);
+      //     document.getElementById("message").innerText = "Unknown error";
+      //   }
+      // }
+
+      async function redirect(links) {
+        try {
+          // Redirect user to the correct app store
+          const userAgent =
+            navigator.userAgent || navigator.vendor || window.opera;
+
+          if (/android/i.test(userAgent) && links.android != null) {
+            console.log("android");
+            callCloudFunction("android");
+            setLinks(links.android);
+          } else if (
+            /iPad|iPhone|iPod/.test(userAgent) &&
+            !window.MSStream &&
+            links.ios != null
+          ) {
+            console.log("ios");
+            callCloudFunction("ios");
+            setLinks(links.ios);
+          } else {
+            console.log("web or unsupported device");
+            callCloudFunction("web");
+
+            // Add your logic here for handling desktop browsers
+            document.getElementById("message").innerText =
+              "This is a desktop browser.";
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("message").innerText = "Unknown error";
+        }
+      }
+
+      const deliveryAppLinks = {
+        ios: null,
+        android: {
+          appLink: "mezdelivery://serviamigos",
+          storeLink:
+            "https://play.google.com/store/apps/details?id=com.mezcalmos.delivery",
+        },
+      };
+      const customerAppLinks = {
+        ios: {
+          appLink: "mezkala://home",
+          storeLink: "https://apps.apple.com/us/app/mezkala/id1595882320",
+        },
+        android: {
+          appLink: "mezkala://home",
+          storeLink:
+            "https://play.google.com/store/apps/details?id=com.mezcalmos.customer",
+        },
+      };
+
+      window.addEventListener("load", () => {
+        console.log(window.location.pathname);
+        console.log(window.location.pathname.split("/"));
+        console.log(window.location.pathname.split("/").pop());
+        if (window.location.pathname.split("/").pop() == "mandaditos") {
+          console.log("delivery link");
+          redirect(deliveryAppLinks);
+        } else {
+          console.log("customer link");
+          redirect(customerAppLinks);
+        }
+      });
+    </script>
+  </body>
+</html>
