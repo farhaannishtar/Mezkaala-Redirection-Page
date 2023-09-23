@@ -6,102 +6,27 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      /* Center the content */
-      /* body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-      } */
-      /* Style for the message */
-      /* #message {
-        margin-bottom: 2vh;
-        font-size: 24px;
-      } */
-      /* Style for the buttons */
-      /* a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1vh 0;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-      } */
-
-      /* Style for Continue to Chat */
-      /* #appLink {
-        background-color: #118c7f;
-        font-size: 1.75rem;
-        border-radius: 999px;
-        padding: 2rem 4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1vh 0;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-      } */
-
-      /* Style for Download App */
-      /* #storelink {
-        color: black;
-        background-color: #30d464;
-        font-size: 1.75rem;
-        border-radius: 999px;
-        padding: 2rem 4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1vh 0;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-      } */
-
-      /* .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      } */
-
-      /* #chatMsg {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-      } */
-
-      /* Make it responsive */
-      /* @media (max-width: 600px) {
-        a {
-          font-size: 55px;
-        }
-        #message {
-          font-size: 50px;
-        }
-      } */
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
     </style>
   </head>
 
-  <body class="font-sans">
+  <body>
     <!-- <p id="message">Redirecting...</p> -->
     <div class="h-screen">
       <div class="flex justify-between items-center py-8 w-full">
-        <button class="flex items-center justify-center relative ml-12">
+        <button
+          id="appLink"
+          class="flex items-center justify-center relative ml-12"
+        >
           <svg
             class="absolute"
             width="68"
@@ -268,52 +193,32 @@
           </svg>
         </div>
       </div>
-      <!-- <div class="flex flex-col items-center justify-center">
-        <div class="bg-[#FAFAFA] border border-red-500">
-          <p class="text-3xl mb-8">Welcome to Mezkala</p>
-        </div>
-      </div> -->
-      <!-- <div>
-          <p>
-          <a href="#" class="my-4 no-underline">
-            <span
-              class="bg-green-600 text-4xl rounded-full p-8 flex items-center justify-center text-white"
+      <div class="flex flex-col items-center bg-gray-50 py-96">
+        <div>
+          <p class="text-center text-5xl leading-7">Welcome to Mezkala</p>
+          <div class="flex w-full justify-center items-center">
+            <button
+              class="mt-10 py-5 px-24 rounded-full text-center text-white text-4xl font-semi-bold"
+              style="
+                background: linear-gradient(
+                  91deg,
+                  #ac59fc 2.11%,
+                  #6779fe 98.56%
+                );
+              "
+              }
             >
-              Continue to Chat
-            </span>
-          </a>
-        </p>
-        <p>
-          <a
-            href="#"
-            class="my-4 text-white bg-blue-600 text-4xl rounded-full p-8 flex items-center justify-center"
-          >
-            Download
-            <span class="ml-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                width="24px"
-                height="24px"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                ></path>
-              </svg>
-            </span>
-          </a>
-        </p>
-      </div> -->
+              Open
+            </button>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-functions.js"></script>
-
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyB9vaAB9ptXhpeRs_JjxODEyuA_eO0tYu0",
