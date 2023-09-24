@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poppins&display=swap"
       rel="stylesheet"
     />
+
     <style>
       body {
         font-family: "Montserrat", sans-serif;
@@ -22,7 +23,7 @@
   <body>
     <!-- <p id="message">Redirecting...</p> -->
     <div class="h-screen">
-      <div class="flex justify-between items-center py-8 w-full">
+      <div class="flex justify-between items-center py-9 w-full">
         <button
           id="appLink"
           class="flex items-center justify-center relative ml-12"
@@ -193,12 +194,17 @@
           </svg>
         </div>
       </div>
-      <div class="flex flex-col items-center bg-gray-50 py-96">
+      <div
+        class="flex flex-col items-center py-96"
+        style="background-color: #fafafa"
+      >
         <div>
-          <p class="text-center text-5xl leading-7">Welcome to Mezkala</p>
+          <p class="text-center text-5xl leading-7 font-semibold">
+            Welcome to Mezkala
+          </p>
           <div class="flex w-full justify-center items-center">
             <button
-              class="mt-10 py-5 px-24 rounded-full text-center text-white text-4xl font-semi-bold"
+              class="mt-10 py-6 px-24 rounded-full text-center text-white text-4xl font-semibold"
               style="
                 background: linear-gradient(
                   91deg,
@@ -206,15 +212,66 @@
                   #6779fe 98.56%
                 );
               "
-              }
             >
-              Open
+              <a href="" id="appLink"> Open </a>
             </button>
           </div>
         </div>
-        <div></div>
-        <div></div>
+        <div class="w-full mx-16 mt-16 px-8">
+          <div style="background: #e9e8e8; height: 2px"></div>
+        </div>
+        <div class="flex flex-col items-center text-center w-full mt-16">
+          <p class="text-4xl leading-7 font-medium">
+            Don't have the app Mezkala yet?
+          </p>
+          <a
+            href=""
+            class="text-center text-4xl leading-7 mt-10 font-semibold"
+            style="color: #6779fe"
+            id="storelink"
+          >
+            Download
+          </a>
+        </div>
       </div>
+      <div class="w-full h-screen" style="background-color: #6779fe">
+        <div class="flex flex-col items-center pt-12">
+          <button
+            class="bg-white text-4xl font-semibold py-6 pr-20 pl-16 rounded-full text-center flex items-center justify-center"
+            style="color: #6779fe"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="mr-2 align-middle"
+            >
+              <path
+                d="M9.79384 13.1553L5.86527 9.22672L6.96527 8.08743L9.00812 10.1303V3.72672H10.5796V10.1303L12.6224 8.08743L13.7224 9.22672L9.79384 13.1553ZM5.07955 16.2981C4.64741 16.2981 4.27734 16.1441 3.96934 15.8361C3.66134 15.5281 3.5076 15.1583 3.50812 14.7267V12.3696H5.07955V14.7267H14.5081V12.3696H16.0796V14.7267C16.0796 15.1589 15.9256 15.5289 15.6176 15.8369C15.3096 16.1449 14.9397 16.2987 14.5081 16.2981H5.07955Z"
+                fill="#6779FE"
+              ></path>
+            </svg>
+            <span class="align-middle">Download</span>
+          </button>
+          <div class="w-full mx-16 mt-12 px-10">
+            <div style="background: #fff; height: 3px"></div>
+          </div>
+          <div class="flex w-full justify-center space-x-12 mt-10">
+            <div
+              class="w-20 h-20 border border-white rounded-full border border-4"
+            ></div>
+            <div
+              class="w-20 h-20 border border-white rounded-full border border-4"
+            ></div>
+            <div
+              class="w-20 h-20 border border-white rounded-full border border-4"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-64"></div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
