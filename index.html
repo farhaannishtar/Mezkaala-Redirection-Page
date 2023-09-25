@@ -22,16 +22,15 @@
 
   <body>
     <!-- <p id="message">Redirecting...</p> -->
-    <div class="relative max-h-screen overflow-y-auto">
+    <div class="relative h-screen overflow-y-auto">
       <!-- This div acts as a container that sets the maximum height to the screen size -->
-      <div class="flex flex-col items-stretch min-h-full">
+      <div class="flex flex-col items-stretch h-full">
         <!-- This div allows the child elements to stretch and fill the space -->
 
-        <div class="flex justify-between items-center py-9 w-full">
-          <button
-            id="appLink"
-            class="flex items-center justify-center relative ml-12"
-          >
+        <div
+          class="flex flex-shrink-0 justify-between items-center py-9 w-full"
+        >
+          <button class="flex items-center justify-center relative ml-12">
             <svg
               class="absolute"
               width="68"
@@ -199,7 +198,7 @@
           </div>
         </div>
         <div
-          class="flex flex-col items-center py-96"
+          class="flex-grow flex flex-col items-center justify-center"
           style="background-color: #fafafa"
         >
           <div>
